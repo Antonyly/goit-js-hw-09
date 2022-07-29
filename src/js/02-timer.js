@@ -39,7 +39,7 @@ function addLeadingZero(value) {
 }
 
 let selectedTime = null;
-
+// let date = new Date();
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -52,8 +52,9 @@ const options = {
         } else {
             buttonStartEl.disabled = false;
             selectedTime = selectedDates[0];
-      }
-    // console.log(selectedDates[0]);
+        }
+      
+    console.log(selectedDates[0]);
   },
 };
 
@@ -69,14 +70,27 @@ class Timer {
         }
         this.isActive = true;
         this.timerID = setInterval(() => {
-        const thisTime = Date.now();
+          const thisTime = Date.now();
+          let date = options.defaultDate - thisTime;
         const averageTime = selectedTime - thisTime;
         const componentsTimer = convertMs(averageTime);
-        this.updateComponentsTimer(componentsTimer);
-        if (averageTime <= 0) {
-            this.stopTimer();
+          this.updateComponentsTimer(componentsTimer);
+          
+          if (averageTime < 0) {
+        this.reupdateComponentsTimer(componentsTimer);
+        // dEl.textContent = '0' + '0';
+        // hEl.textContent = '0' + '0';
+        // mEl.textContent = '0' + '0';
+        // sEl.textContent = '0' + '0';
         }
         }, 1000);
+    }
+      reupdateComponentsTimer({days, hours, minutes, seconds}) {
+        dEl.textContent = addLeadingZero(days + 2);
+        hEl.textContent = addLeadingZero(hours + 24);
+        mEl.textContent = addLeadingZero(minutes + 60);
+        sEl.textContent = addLeadingZero(seconds + 60);
+
     }
     updateComponentsTimer({days, hours, minutes, seconds}) {
         dEl.textContent = addLeadingZero(days);
