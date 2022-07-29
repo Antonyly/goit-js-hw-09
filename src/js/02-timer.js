@@ -53,7 +53,7 @@ const options = {
             buttonStartEl.disabled = false;
             selectedTime = selectedDates[0];
       }
-    console.log(selectedDates[0]);
+    // console.log(selectedDates[0]);
   },
 };
 

@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.5;
+  const shouldResolve = Math.random() > 0.3;
   const promise = { position, delay };
     return new Promise((resolve, reject) => {
     if (shouldResolve) {
@@ -12,8 +12,8 @@ function createPromise(position, delay) {
   });
 }
 
-const form = document.querySelector('.form');
-form.addEventListener('submit', submitForm);
+const formEl = document.querySelector('.form');
+formEl.addEventListener('submit', submitForm);
 
 function submitForm(e) {
   e.preventDefault();
