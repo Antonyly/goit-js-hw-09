@@ -77,7 +77,8 @@ class Timer {
           this.updateComponentsTimer(componentsTimer);
           
           if (averageTime < 0) {
-        this.reupdateComponentsTimer(componentsTimer);
+            this.reupdateComponentsTimer(componentsTimer);
+            buttonStartEl.disabled = true;
         // dEl.textContent = '0' + '0';
         // hEl.textContent = '0' + '0';
         // mEl.textContent = '0' + '0';
@@ -90,6 +91,7 @@ class Timer {
         hEl.textContent = addLeadingZero(hours * 0);
         mEl.textContent = addLeadingZero(minutes * 0);
         sEl.textContent = addLeadingZero(seconds * 0);
+
 
     }
     updateComponentsTimer({days, hours, minutes, seconds}) {
