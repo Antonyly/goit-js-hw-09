@@ -86,10 +86,10 @@ class Timer {
         }, 1000);
     }
       reupdateComponentsTimer({days, hours, minutes, seconds}) {
-        dEl.textContent = addLeadingZero(days + 2);
-        hEl.textContent = addLeadingZero(hours + 24);
-        mEl.textContent = addLeadingZero(minutes + 60);
-        sEl.textContent = addLeadingZero(seconds + 60);
+        dEl.textContent = addLeadingZero(days * 0);
+        hEl.textContent = addLeadingZero(hours * 0);
+        mEl.textContent = addLeadingZero(minutes * 0);
+        sEl.textContent = addLeadingZero(seconds * 0);
 
     }
     updateComponentsTimer({days, hours, minutes, seconds}) {
